@@ -6,7 +6,7 @@ This is a mockup store website that uses the [DummyJSON API](https://dummyjson.c
 
 ## Tech Stack
 
-Programming language: React.js
-Style: CSS and Framer Motion
-Webpacker: Vite
-Tester: Vitest
+- Programming language: React.js
+- Style: CSS and Framer Motion
+- Webpacker: Vite
+- Tester: Vitest
