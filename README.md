@@ -1,12 +1,12 @@
-# React + Vite
+# Lunel - A mock-up e-commerce website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+live preview: []()
 
-Currently, two official plugins are available:
+This is a mockup store website that uses the [DummyJSON API](https://dummyjson.com/) uses Vite for webpacker and React.js as the main language.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Tech Stack
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend using TypeScript and enable type-aware lint rules. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Programming language: React.js
+Style: CSS and Framer Motion
+Webpacker: Vite
+Tester: Vitest
