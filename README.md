@@ -1,4 +1,4 @@
-# Mock-up-Store
+# LUNEL - a mock-up store
 
 Link to live preview:
 
