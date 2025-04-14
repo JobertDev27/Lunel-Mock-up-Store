@@ -1,8 +1,17 @@
+import Header from "./components/Header/Header";
+import "./style/main.css";
+
 export default function Home() {
   return (
-    <div>
-      <h1>hello welcome to home page</h1>
-      <a href="store">store</a>
-    </div>
+    <main>
+      <Header />
+      <section id="landing-page-bg"></section>
+      <section id="landing-page">
+        <p className="qoute-text">"Effortless. Elevated. Lunel."</p>
+      </section>
+      <section>
+        <p>test</p>
+      </section>
+    </main>
   );
 }
