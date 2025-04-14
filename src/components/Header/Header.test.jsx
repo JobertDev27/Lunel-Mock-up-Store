@@ -11,15 +11,24 @@ import Cart from "../../Cart";
 
 describe("Header component", () => {
   it("Displays the title", () => {
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
     expect(screen.getByText(/LUNEL/i)).toBeInTheDocument();
   });
 
   it("Displays the navlink", () => {
-    render(<Header />);
-    expect(screen.getByText(/HOME/i).toBeInTheDocument());
-    expect(screen.getByText(/SHOP/i).toBeInTheDocument());
-    expect(screen.getByText(/CONTACT US/i).toBeInTheDocument());
-    expect(screen.getByText(/CART/i).toBeInTheDocument());
+    render(
+      <MemoryRouter>
+        <Header />
+      </MemoryRouter>
+    );
+    expect(screen.getByText(/HOME/i)).toBeInTheDocument();
+    expect(screen.getByText(/SHOP/i)).toBeInTheDocument();
+    expect(screen.getByText(/CONTACT US/i)).toBeInTheDocument();
+    expect(screen.getByText(/CART/i)).toBeInTheDocument();
   });
 
   it("Links to each respective pagefront", async () => {
@@ -35,29 +44,23 @@ describe("Header component", () => {
       </MemoryRouter>
     );
     const user = userEvent.setup();
-    const homeLink = screen.getByText(/HOME/i);
+    const homeLink = screen.getAllByText(/HOME/i);
     const shopLink = screen.getByText(/SHOP/i);
     const contactLink = screen.getByText(/CONTACT US/i);
     const cartLink = screen.getByText(/CART/i);
 
     await user.click(shopLink);
-    expect(
-      screen.getByText(/hello welcome to the shop page/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText(/welcome to the shop page/i)).toBeInTheDocument();
 
     await user.click(contactLink);
     expect(
-      screen.getByText(/hello welcome to the contact page/i)
+      screen.getByText(/welcome to the contact page/i)
     ).toBeInTheDocument();
 
     await user.click(cartLink);
-    expect(
-      screen.getByText(/hello welcome to the cart page/i)
-    ).toBeInTheDocument();
+    expect(screen.getByText(/welcome to the cart page/i)).toBeInTheDocument();
 
-    await user.click(homeLink);
-    expect(
-      screen.getByText(/hello welcome to the home page/i)
-    ).toBeInTheDocument();
+    await user.click(homeLink[0]);
+    expect(screen.getByText(/welcome to home page/i)).toBeInTheDocument();
   });
 });
