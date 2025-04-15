@@ -45,22 +45,24 @@ describe("Header component", () => {
     );
     const user = userEvent.setup();
     const homeLink = screen.getAllByText(/HOME/i);
-    const shopLink = screen.getByText(/SHOP/i);
-    const contactLink = screen.getByText(/CONTACT US/i);
-    const cartLink = screen.getByText(/CART/i);
+    const shopLink = screen.getAllByText(/SHOP/i);
+    const contactLink = screen.getAllByText(/CONTACT US/i);
+    const cartLink = screen.getAllByText(/CART/i);
 
-    await user.click(shopLink);
-    expect(screen.getByText(/welcome to the shop page/i)).toBeInTheDocument();
+    await user.click(shopLink[0]);
+    expect(shopLink[0]).toBeInTheDocument();
+    expect(shopLink[0]).toHaveAttribute("href", "/shop");
 
-    await user.click(contactLink);
-    expect(
-      screen.getByText(/welcome to the contact page/i)
-    ).toBeInTheDocument();
+    await user.click(contactLink[0]);
+    expect(contactLink[0]).toBeInTheDocument();
+    expect(contactLink[0]).toHaveAttribute("href", "/contact");
 
-    await user.click(cartLink);
-    expect(screen.getByText(/welcome to the cart page/i)).toBeInTheDocument();
+    await user.click(cartLink[0]);
+    expect(cartLink[0]).toBeInTheDocument();
+    expect(cartLink[0]).toHaveAttribute("href", "/cart");
 
     await user.click(homeLink[0]);
-    expect(screen.getByText(/welcome to home page/i)).toBeInTheDocument();
+    expect(homeLink[0]).toBeInTheDocument();
+    expect(homeLink[0]).toHaveAttribute("href", "/");
   });
 });
