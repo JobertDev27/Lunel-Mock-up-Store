@@ -7,19 +7,21 @@
 :root {
     --bg: #F8F5F2;
     --overlay: #EADDD0;
+    --darkOverlay : #D6C4B3;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    color: white;
     position: fixed;
+    background-color: rgba(0, 0, 0, 0.075);
+    backdrop-filter: blur(5px);
     width: 100%;
     box-sizing: border-box;
     z-index: 10;
-    margin-top: .5%;
     font-size: 1.2rem;
+    transition: color 500ms;
 }
 
 header nav {
@@ -35,7 +37,7 @@ header h1 {
 
 header nav a {
     text-decoration: none;
-    color: white;
+    transition: color 500ms;
 }
 
 section {
@@ -69,6 +71,49 @@ section {
 .shop-btn {
     font-size: 1.2rem;
     padding: 10px 15px;
+    font-weight: 700;
     border: none;
     background-color: var(--overlay);
+}
+
+#qoute-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+#qoute-section div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+}
+
+#qoute-section .shop-btn {
+    width:fit-content;
+}
+
+.image-box {
+    height: 95vh;
+}
+
+#benefit-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    height: fit-content;
+    padding: 2% 0;
+    background-color: var(--overlay);
+}
+
+#benefit-container div {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#benefit-container div img {
+    width: 64px;
 }
