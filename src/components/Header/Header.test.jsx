@@ -34,12 +34,43 @@ describe("Header component", () => {
   it("Links to each respective pagefront", async () => {
     render(
       <MemoryRouter initialEntries={["/"]}>
-        <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/shop" element={<Shop />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route path="/cart" element={<Cart />} />
+          <Route
+            path="/"
+            element={
+              <>
+                <Header />
+                <Home />
+              </>
+            }
+          />
+          <Route
+            path="/shop"
+            element={
+              <>
+                <Header />
+                <Shop />
+              </>
+            }
+          />
+          <Route
+            path="/contact"
+            element={
+              <>
+                <Header />
+                <Contact />
+              </>
+            }
+          />
+          <Route
+            path="/cart"
+            element={
+              <>
+                <Header />
+                <Cart />
+              </>
+            }
+          />
         </Routes>
       </MemoryRouter>
     );
