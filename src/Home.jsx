@@ -1,16 +1,23 @@
-import Header from "./components/Header/Header";
-import ShopBtn from "./components/ShopBtn/ShopBtn";
-//eslint-disable-next-line no-unused-vars
+// eslint-disable-next-line
 import { motion } from "motion/react";
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "motion/react";
 import "./style/main.css";
 
+// Components imports
+import Header from "./components/Header/Header";
+import ShopBtn from "./components/ShopBtn/ShopBtn";
+import CategoryBanner from "./components/CategoryBanner/CategoryBanner";
+
+// Image imports
 import bg2 from "./assets/bg2.jpg";
 import truck from "./assets/truck.png";
 import days from "./assets/days.png";
 import material from "./assets/material.png";
 import credit from "./assets/credit-card.png";
+import catBg1 from "./assets/clothing-category-bg.jpg";
+import catBg2 from "./assets/accessory-category-bg.jpg";
+import catBg3 from "./assets/cosmetics-category-bg.jpg";
 
 export default function Home() {
   const pageRef = useRef(null);
@@ -99,7 +106,61 @@ export default function Home() {
           <p>HIGH QUALITY MATERIAL</p>
         </motion.div>
       </motion.section>
-      <section></section>
+      <section id="category-section">
+        <motion.h1
+          initial={{ opacity: 0, y: 30 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 1, ease: "easeIn" }}
+          viewport={{ once: true, amount: 1 }}
+          className="qoute-text"
+        >
+          CATEGORIES
+        </motion.h1>
+
+        <div className="banner-container">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.9, once: true }}
+            transition={{ duration: 1, ease: "easeIn" }}
+            style={{ width: "fit-content" }}
+          >
+            <CategoryBanner bgImage={catBg1} categoryLabel={"CLOTHING"} />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: -30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 1, once: true }}
+            transition={{ duration: 1, ease: "easeIn" }}
+            style={{ width: "fit-content" }}
+          >
+            <CategoryBanner bgImage={catBg2} categoryLabel={"ACCESSORIES"} />
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ amount: 0.9, once: true }}
+            transition={{ duration: 1, ease: "easeIn" }}
+            style={{ width: "fit-content" }}
+          >
+            <CategoryBanner bgImage={catBg3} categoryLabel={"COSMETICS"} />
+          </motion.div>
+        </div>
+      </section>
+      <section id="call-to-action-section">
+        <div id="bg-filter">
+          <p className="qoute-text">
+            "Where craftsmanship meets legacy, brilliance is born."
+          </p>
+          <ShopBtn />
+        </div>
+      </section>
+      <section id="testimonial-section"></section>
+      <footer>
+        <p className="qoute-text">hello</p>
+      </footer>
     </main>
   );
 }
