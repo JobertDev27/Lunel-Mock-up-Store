@@ -10,6 +10,12 @@
     --darkOverlay : #D6C4B3;
 }
 
+#qoute-section,
+#benefit-container,
+.category-banner {
+  will-change: transform, opacity;
+}
+
 header {
     display: flex;
     justify-content: space-between;
