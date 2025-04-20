@@ -45,7 +45,12 @@ export default function Home() {
           }}
           id="qoute-section"
         >
-          <img className="image-box" src={bg2} alt="woman in shadow" />
+          <img
+            className="image-box"
+            src={bg2}
+            alt="woman in shadow"
+            loading="lazy"
+          />
           <div>
             <p className="qoute-text">
               “Crafted for the moment. Designed for forever.”
@@ -156,7 +161,12 @@ export default function Home() {
           id="testimonial-section"
         >
           <div>
-            <img className="profile-pic" src={pfp} alt="picture of woman" />
+            <img
+              className="profile-pic"
+              src={pfp}
+              alt="picture of woman"
+              loading="lazy"
+            />
           </div>
           <div>
             <b>"Absolutely stunning."</b>
