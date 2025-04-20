@@ -8,15 +8,15 @@ import ShopBtn from "./components/ShopBtn/ShopBtn";
 import CategoryBanner from "./components/CategoryBanner/CategoryBanner";
 
 // Image imports
-import bg2 from "./assets/bg2.jpg";
+import bg2 from "./assets/bg2.webp";
 import truck from "./assets/truck.png";
 import days from "./assets/days.png";
 import material from "./assets/material.png";
 import credit from "./assets/credit-card.png";
-import catBg1 from "./assets/clothing-category-bg.jpg";
-import catBg2 from "./assets/accessory-category-bg.jpg";
-import catBg3 from "./assets/cosmetics-category-bg.jpg";
-import pfp from "./assets/user-image.jpg";
+import catBg1 from "./assets/clothing-category-bg.webp";
+import catBg2 from "./assets/accessory-category-bg.webp";
+import catBg3 from "./assets/cosmetics-category-bg.webp";
+import pfp from "./assets/user-image.webp";
 
 export default function Home() {
   return (
@@ -25,8 +25,8 @@ export default function Home() {
       <main>
         <section id="landing-page-bg">
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
             transition={{ duration: 1.2, ease: "easeInOut" }}
             id="bg-filter"
           >

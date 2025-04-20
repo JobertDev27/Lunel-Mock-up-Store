@@ -15,12 +15,12 @@ header {
     justify-content: space-between;
     align-items: center;
     position: fixed;
-    background-color: var(--darkOverlay);
+    background-color: rgba(0, 0, 0, 0.411);
     width: 100%;
     box-sizing: border-box;
     z-index: 100;
     font-size: 1.2rem;
-    color: black;
+    color: white;
     max-height: 100px;
 }
 
@@ -35,7 +35,7 @@ header h1 {
 }
 
 header nav a {
-    color: black;
+    color: white;
     text-decoration: none;
 }
 
@@ -52,7 +52,7 @@ section {
 }
 
 #landing-page-bg {
-    background: url("/src/assets/bg1.jpg") no-repeat;
+    background: url("/src/assets/bg1.webp") no-repeat;
     background-size: cover;
     background-attachment: fixed;
     background-position: 0 -200px;
@@ -165,7 +165,7 @@ section {
 }
 
 #call-to-action-section {
-    background: url("/src/assets/bg3.jpg") no-repeat;
+    background: url("/src/assets/bg3.webp") no-repeat;
     background-size: cover;
     background-attachment: fixed;
 }
@@ -199,7 +199,7 @@ section {
     justify-content: center;
     align-items: center;
     text-align: center;
-    gap: 10px;
+    gap: 20px;
 }
 
 #testimonial-section div p {
