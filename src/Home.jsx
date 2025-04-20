@@ -1,7 +1,5 @@
 // eslint-disable-next-line
 import { motion } from "motion/react";
-import { useEffect, useRef, useState } from "react";
-import { useInView } from "motion/react";
 import "./style/main.css";
 
 // Components imports
@@ -21,171 +19,186 @@ import catBg3 from "./assets/cosmetics-category-bg.jpg";
 import pfp from "./assets/user-image.jpg";
 
 export default function Home() {
-  const pageRef = useRef(null);
-  const isInView = useInView(pageRef, { margin: "-50px" });
-  const [headerColor, setHeaderColor] = useState("white");
-
-  useEffect(() => {
-    setHeaderColor(isInView ? "white" : "black");
-  }, [isInView]);
-
   return (
-    <main>
-      <Header color={headerColor} />
-      <section id="landing-page-bg"></section>
-      <motion.section id="landing-page" ref={pageRef}>
-        <motion.p
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1.2, ease: "easeInOut" }}
-          className="qoute-text"
-        >
-          "Effortless. Elevated. Lunel."
-        </motion.p>
-        <ShopBtn />
-      </motion.section>
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        transition={{ duration: 2 }}
-        viewport={{
-          amount: 0.5,
-          once: true,
-          ease: "easeInOut",
-        }}
-        id="qoute-section"
-      >
-        <img className="image-box" src={bg2} alt="woman in shadow" />
-        <div>
-          <p className="qoute-text">
-            “Crafted for the moment. Designed for forever.”
-          </p>
-          <ShopBtn />
-        </div>
-      </motion.section>
-      <motion.section
-        initial={{ opacity: 0 }}
-        whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.5 }}
-        viewport={{ amount: 0.9, once: true }}
-        id="benefit-container"
-      >
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ amount: 1, once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <img src={truck} alt="" />
-          <p>FREE SHIPPING</p>
-        </motion.div>
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ amount: 1, once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <img src={days} alt="" />
-          <p>30 DAYS RETURN</p>
-        </motion.div>
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ amount: 1, once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <img src={credit} alt="" />
-          <p>SAFE PAYMENT</p>
-        </motion.div>
-        <motion.div
-          initial={{ y: 20, opacity: 0 }}
-          whileInView={{ y: 0, opacity: 1 }}
-          viewport={{ amount: 1, once: true }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <img src={material} alt="" />
-          <p>HIGH QUALITY MATERIAL</p>
-        </motion.div>
-      </motion.section>
-      <section id="category-section">
-        <motion.h1
-          initial={{ opacity: 0, y: 30 }}
+    <>
+      <Header />
+      <main>
+        <section id="landing-page-bg">
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 1.2, ease: "easeInOut" }}
+            id="bg-filter"
+          >
+            <p className="qoute-text">"Effortless. Elevated. Lunel."</p>
+            <ShopBtn />
+          </motion.div>
+        </section>
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 1, ease: "easeIn" }}
-          viewport={{ once: true, amount: 1 }}
-          className="qoute-text"
+          transition={{ duration: 2 }}
+          viewport={{
+            amount: 0.5,
+            once: true,
+            ease: "easeInOut",
+          }}
+          id="qoute-section"
         >
-          CATEGORIES
-        </motion.h1>
-
-        <div className="banner-container">
+          <img className="image-box" src={bg2} alt="woman in shadow" />
+          <div>
+            <p className="qoute-text">
+              “Crafted for the moment. Designed for forever.”
+            </p>
+            <ShopBtn />
+          </div>
+        </motion.section>
+        <motion.section
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          viewport={{ amount: 0.9, once: true }}
+          id="benefit-container"
+        >
           <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ amount: 0.9, once: true }}
-            transition={{ duration: 1, ease: "easeIn" }}
-            style={{ width: "fit-content" }}
-          >
-            <CategoryBanner bgImage={catBg1} categoryLabel={"CLOTHING"} />
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
             viewport={{ amount: 1, once: true }}
-            transition={{ duration: 1, ease: "easeIn" }}
-            style={{ width: "fit-content" }}
+            transition={{ duration: 0.5, delay: 0.5 }}
           >
-            <CategoryBanner bgImage={catBg2} categoryLabel={"ACCESSORIES"} />
+            <img src={truck} alt="" />
+            <p>FREE SHIPPING</p>
           </motion.div>
-
           <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ amount: 1, once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <img src={days} alt="" />
+            <p>30 DAYS RETURN</p>
+          </motion.div>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ amount: 1, once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <img src={credit} alt="" />
+            <p>SAFE PAYMENT</p>
+          </motion.div>
+          <motion.div
+            initial={{ y: 20, opacity: 0 }}
+            whileInView={{ y: 0, opacity: 1 }}
+            viewport={{ amount: 1, once: true }}
+            transition={{ duration: 0.5, delay: 0.5 }}
+          >
+            <img src={material} alt="" />
+            <p>HIGH QUALITY MATERIAL</p>
+          </motion.div>
+        </motion.section>
+        <section id="category-section">
+          <motion.h1
             initial={{ opacity: 0, y: 30 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ amount: 0.9, once: true }}
             transition={{ duration: 1, ease: "easeIn" }}
-            style={{ width: "fit-content" }}
+            viewport={{ once: true, amount: 1 }}
+            className="qoute-text"
           >
-            <CategoryBanner bgImage={catBg3} categoryLabel={"COSMETICS"} />
-          </motion.div>
-        </div>
-      </section>
-      <section id="call-to-action-section">
-        <div id="bg-filter">
-          <p className="qoute-text">
-            "Where craftsmanship meets legacy, brilliance is born."
-          </p>
-          <ShopBtn />
-        </div>
-      </section>
-      <motion.section
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.9 }}
-        transition={{ duration: 1, ease: "easeInOut" }}
-        id="testimonial-section"
-      >
-        <div>
-          <img className="profile-pic" src={pfp} alt="picture of woman" />
-        </div>
-        <div>
-          <b>"Absolutely stunning."</b>
-          <p>⭐⭐⭐⭐⭐</p>
-          <p>
-            I came across Lunel while searching for a timeless piece to mark a
-            special moment—and I couldn't be more impressed. The craftsmanship
-            is exceptional, and the packaging felt like opening a secret. It’s
-            clear that every detail, from the design to the finish, is done with
-            intention. I've worn my piece every day since it arrived and
-            constantly get compliments. Truly a luxury experience from start to
-            finish.
-          </p>
-          <b>— Isabelle M.</b>
-        </div>
-      </motion.section>
-      <footer>
-        <p className="qoute-text">hello</p>
-      </footer>
-    </main>
+            CATEGORIES
+          </motion.h1>
+
+          <div className="banner-container">
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.9, once: true }}
+              transition={{ duration: 1, ease: "easeIn" }}
+              style={{ width: "fit-content" }}
+            >
+              <CategoryBanner bgImage={catBg1} categoryLabel={"CLOTHING"} />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: -30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 1, once: true }}
+              transition={{ duration: 1, ease: "easeIn" }}
+              style={{ width: "fit-content" }}
+            >
+              <CategoryBanner bgImage={catBg2} categoryLabel={"ACCESSORIES"} />
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ amount: 0.9, once: true }}
+              transition={{ duration: 1, ease: "easeIn" }}
+              style={{ width: "fit-content" }}
+            >
+              <CategoryBanner bgImage={catBg3} categoryLabel={"COSMETICS"} />
+            </motion.div>
+          </div>
+        </section>
+        <section id="call-to-action-section">
+          <div id="bg-filter">
+            <p className="qoute-text">
+              "Where craftsmanship meets legacy, brilliance is born."
+            </p>
+            <ShopBtn />
+          </div>
+        </section>
+        <motion.section
+          initial={{ opacity: 0, y: 40 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.9 }}
+          transition={{ duration: 1, ease: "easeInOut" }}
+          id="testimonial-section"
+        >
+          <div>
+            <img className="profile-pic" src={pfp} alt="picture of woman" />
+          </div>
+          <div>
+            <b>"Absolutely stunning."</b>
+            <p>⭐⭐⭐⭐⭐</p>
+            <p>
+              I came across Lunel while searching for a timeless piece to mark a
+              special moment—and I couldn't be more impressed. The craftsmanship
+              is exceptional, and the packaging felt like opening a secret. It’s
+              clear that every detail, from the design to the finish, is done
+              with intention. I've worn my piece every day since it arrived and
+              constantly get compliments. Truly a luxury experience from start
+              to finish.
+            </p>
+            <b>— Isabelle M.</b>
+          </div>
+        </motion.section>
+        <footer>
+          <div>
+            <b>Menu</b>
+            <p>Home</p>
+            <p>Shop</p>
+            <p>Contact us</p>
+          </div>
+          <div>
+            <b>Categories</b>
+            <p>Clothing</p>
+            <p>Accessiories</p>
+            <p>cosmetics</p>
+            <p>Jewelry</p>
+          </div>
+          <div>
+            <b>Social Media</b>
+            <p>Twitter</p>
+            <p>Facebook</p>
+            <p>Instagram</p>
+            <p>Pinterest</p>
+          </div>
+          <div id="copyright-footer">
+            <p>Copyright &copy;2025 Designed by: Jobertdev27</p>
+          </div>
+        </footer>
+      </main>
+    </>
   );
 }
