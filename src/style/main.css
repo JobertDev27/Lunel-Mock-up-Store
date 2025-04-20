@@ -196,7 +196,32 @@ section {
     position: absolute;
 }
 
+#testimonial-section {
+    display: flex;
+    justify-content: center;
+    gap: 100px;
+}
+
+#testimonial-section div {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 10px;
+}
+
+#testimonial-section div p {
+    max-width: 700px;
+}
+
+.profile-pic {
+    width: 256px;
+    border-radius: 125px;
+}
+
 footer {
     background-color: var(--darkOverlay);
     height: fit-content;
 }
+

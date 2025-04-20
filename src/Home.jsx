@@ -18,6 +18,7 @@ import credit from "./assets/credit-card.png";
 import catBg1 from "./assets/clothing-category-bg.jpg";
 import catBg2 from "./assets/accessory-category-bg.jpg";
 import catBg3 from "./assets/cosmetics-category-bg.jpg";
+import pfp from "./assets/user-image.jpg";
 
 export default function Home() {
   const pageRef = useRef(null);
@@ -157,7 +158,31 @@ export default function Home() {
           <ShopBtn />
         </div>
       </section>
-      <section id="testimonial-section"></section>
+      <motion.section
+        initial={{ opacity: 0, y: 40 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.9 }}
+        transition={{ duration: 1, ease: "easeInOut" }}
+        id="testimonial-section"
+      >
+        <div>
+          <img className="profile-pic" src={pfp} alt="picture of woman" />
+        </div>
+        <div>
+          <b>"Absolutely stunning."</b>
+          <p>⭐⭐⭐⭐⭐</p>
+          <p>
+            I came across Lunel while searching for a timeless piece to mark a
+            special moment—and I couldn't be more impressed. The craftsmanship
+            is exceptional, and the packaging felt like opening a secret. It’s
+            clear that every detail, from the design to the finish, is done with
+            intention. I've worn my piece every day since it arrived and
+            constantly get compliments. Truly a luxury experience from start to
+            finish.
+          </p>
+          <b>— Isabelle M.</b>
+        </div>
+      </motion.section>
       <footer>
         <p className="qoute-text">hello</p>
       </footer>
