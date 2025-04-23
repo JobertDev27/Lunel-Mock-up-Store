@@ -238,3 +238,42 @@ footer {
     width: 100%;
     font-family: Arial, Helvetica, sans-serif;
 }
+
+.items-list {
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 200px;
+    gap: 20px;
+    padding-top: 50px;
+}
+
+.item-frame {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 300px;
+    height: 340px;
+    background-color: #fff;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.411);
+    transition: transform 0.3s ease-in-out;
+}
+
+.item-frame:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s ease-in-out;
+}
+
+.item-content {
+    background-color: var(--darkOverlay);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px 0;
+}
+
+.item-price {
+    color: rgb(0, 110, 18);
+}
