@@ -19,7 +19,7 @@ export default function Header() {
   }, [lastY]);
 
   return (
-    <motion.Header
+    <motion.header
       initial={{ y: 0 }}
       animate={{ y: show ? 0 : -100 }}
       transition={{ duration: 0.3, ease: "easeInOut" }}
@@ -32,6 +32,6 @@ export default function Header() {
         <Link to="/contact">CONTACT US</Link>
         <Link to="/cart">CART</Link>
       </nav>
-    </motion.Header>
+    </motion.header>
   );
 }
