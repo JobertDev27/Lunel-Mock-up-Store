@@ -3,9 +3,9 @@ import { motion } from "motion/react";
 import "./style/main.css";
 
 // Components imports
-import Header from "./components/Header/Header";
-import ShopBtn from "./components/ShopBtn/ShopBtn";
-import CategoryBanner from "./components/CategoryBanner/CategoryBanner";
+import Header from "./components/Header";
+import ShopBtn from "./components/ShopBtn";
+import CategoryBanner from "./components/CategoryBanner";
 
 // Image imports
 import bg2 from "./assets/bg2.webp";
