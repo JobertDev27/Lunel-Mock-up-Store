@@ -1,7 +1,7 @@
 export default function ItemContainer({ image, title, price }) {
   return (
     <div className="item-frame">
-      <img src={image} alt="" className="item-thumbnail" />
+      <img src={image} alt={title + "image"} className="item-thumbnail" />
       <div className="item-content">
         <strong className="item-name">{title}</strong>
         <p className="item-price">{price}</p>
