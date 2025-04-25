@@ -12,7 +12,6 @@ Lunel is a sleek, modern mock e-commerce site built with React.js, styled with C
 - **Routing:** React Router
 - **Styling:** CSS, Framer Motion
 - **Bundler:** Vite
-- **Testing:** Vitest
 - **API:** DummyJSON
 - **Code Quality:** ESLint, Prettier
 
