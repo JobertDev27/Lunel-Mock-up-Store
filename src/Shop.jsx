@@ -1,62 +1,84 @@
 import Header from "./components/Header";
-import useFetch from "./components/useFetch";
 import ItemContainer from "./components/ItemContainer";
+import { useState } from "react";
+import CategoryBox from "./components/CategoryBox";
 import "./style/main.css";
-import { useEffect, useState } from "react";
+
+import jewelryImg from "./assets/jewelry.webp";
+import dressImg from "./assets/dress.webp";
+import cosmeticsImg from "./assets/cosmetics.webp";
+import shoesImg from "./assets/shoes.webp";
+import watchImg from "./assets/watch.webp";
+import bagImg from "./assets/bag.webp";
+import fragranceImg from "./assets/fragrance.webp";
+import Footer from "./components/Footer";
 
 export default function Shop() {
   const [currDisplay, setCurrDisplay] = useState(null);
 
-  const dress = useFetch("womens-dresses");
-  const cosmetics = useFetch("beauty");
-  const jewelry = useFetch("womens-jewellery");
-  const bag = useFetch("womens-bags");
-  const shoes = useFetch("womens-shoes");
-  const watch = useFetch("womens-watches");
-  const fragrance = useFetch("fragrances");
-
-  useEffect(() => {
-    setCurrDisplay(dress);
-  }, [dress]);
+  const categories = [
+    { name: "Jewelry", image: jewelryImg, loadItems: "womens-jewellery" },
+    { name: "Dress", image: dressImg, loadItems: "womens-dresses" },
+    { name: "Cosmetics", image: cosmeticsImg, loadItems: "beauty" },
+    { name: "Shoes", image: shoesImg, loadItems: "womens-shoes" },
+    { name: "Watch", image: watchImg, loadItems: "womens-watches" },
+    { name: "Bag", image: bagImg, loadItems: "womens-bags" },
+    { name: "Fragrance", image: fragranceImg, loadItems: "fragrances" },
+  ];
 
   const ShopRenderer = ({ element }) => {
     return (
-      <div className="items-list">
-        {element?.map((item, key) => (
-          <ItemContainer
-            image={item?.thumbnail}
-            title={item?.title}
-            price={item?.price}
-            key={key}
-          />
-        ))}
+      <div>
+        {element === null ? (
+          <div className="display-container">
+            {categories.map((element, index) => {
+              return (
+                <CategoryBox
+                  name={element.name}
+                  image={element.image}
+                  key={index}
+                  setCurrDisplay={setCurrDisplay}
+                  loadItems={element.loadItems}
+                />
+              );
+            })}
+          </div>
+        ) : (
+          <>
+            <div className="display-container">
+              {element?.map((item, key) => {
+                return (
+                  <ItemContainer
+                    image={item?.thumbnail}
+                    title={item?.title}
+                    price={item?.price}
+                    key={key}
+                  />
+                );
+              })}
+            </div>
+            <div className="end-section">
+              <p className="qoute-text">End of products</p>
+              <button
+                className="return-btn"
+                onClick={() => setCurrDisplay(null)}
+              >
+                Return to Categories
+              </button>
+            </div>
+          </>
+        )}
       </div>
     );
   };
 
-  console.log(dress);
   return (
     <>
       <Header />
       <main className="shop-main">
-        <nav className="category-nav">
-          <button
-            onClick={() => {
-              setCurrDisplay(dress);
-            }}
-          >
-            dress
-          </button>
-          <button
-            onClick={() => {
-              setCurrDisplay(bag);
-            }}
-          >
-            bag
-          </button>
-        </nav>
         <ShopRenderer element={currDisplay} />
       </main>
+      <Footer />
     </>
   );
 }
