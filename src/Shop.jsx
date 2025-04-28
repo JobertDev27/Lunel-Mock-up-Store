@@ -1,4 +1,3 @@
-import Header from "./components/Header";
 import ItemContainer from "./components/ItemContainer";
 import { useState } from "react";
 import CategoryBox from "./components/CategoryBox";
@@ -12,9 +11,11 @@ import watchImg from "./assets/watch.webp";
 import bagImg from "./assets/bag.webp";
 import fragranceImg from "./assets/fragrance.webp";
 import Footer from "./components/Footer";
+import ProductPage from "./components/ProductPage";
 
 export default function Shop() {
   const [currDisplay, setCurrDisplay] = useState(null);
+  const [currProduct, setCurrProduct] = useState(null);
 
   const categories = [
     { name: "Jewelry", image: jewelryImg, loadItems: "womens-jewellery" },
@@ -29,7 +30,7 @@ export default function Shop() {
   const ShopRenderer = ({ element }) => {
     return (
       <div>
-        {element === null ? (
+        {!element ? (
           <div className="display-container">
             {categories.map((element, index) => {
               return (
@@ -47,12 +48,14 @@ export default function Shop() {
           <>
             <div className="display-container">
               {element?.map((item, key) => {
+                console.log(item);
                 return (
                   <ItemContainer
                     image={item?.thumbnail}
                     title={item?.title}
                     price={item?.price}
                     key={key}
+                    onClick={() => setCurrProduct(item)}
                   />
                 );
               })}
@@ -74,7 +77,12 @@ export default function Shop() {
 
   return (
     <>
-      <Header />
+      {currProduct && (
+        <ProductPage data={currProduct} setCurrDisplay={setCurrProduct} />
+      )}
+      <div className="searchbar-container">
+        <input type="search" />
+      </div>
       <main className="shop-main">
         <ShopRenderer element={currDisplay} />
       </main>
