@@ -1,3 +1,5 @@
+import ProductComment from "./ProductComment";
+
 export default function ProductPage({ data, setCurrDisplay }) {
   return (
     <div className="product-page-container">
@@ -10,7 +12,9 @@ export default function ProductPage({ data, setCurrDisplay }) {
         ) : (
           <img src={data?.thumbnail} alt="" className="product-image" />
         )}
-
+        <button className="close-button" onClick={() => setCurrDisplay(null)}>
+          X
+        </button>
         <div className="product-content">
           <div className="main">
             <p className="product-name">{data?.title}</p>
@@ -39,6 +43,12 @@ export default function ProductPage({ data, setCurrDisplay }) {
             <p>Width: {data?.dimensions?.width}</p>
             <p>Height: {data?.dimensions?.height}</p>
             <p>Depth: {data?.dimensions?.depth}</p>
+          </div>
+          <div className="comments-container">
+            <p className="comment-label">COMMENTS:</p>
+            {data?.reviews.map((data, index) => {
+              return <ProductComment commentData={data} key={index} />;
+            })}
           </div>
         </div>
       </div>
